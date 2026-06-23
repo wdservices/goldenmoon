@@ -5,11 +5,9 @@ import {
   MessageCircle,
   Wifi,
   Waves,
-  Dumbbell,
   Zap,
   Car,
   UtensilsCrossed,
-  Snowflake,
   ShieldCheck,
   Star,
   MapPin,
@@ -20,6 +18,12 @@ import {
   ArrowRight,
   ArrowUpRight,
   Sparkles,
+  Tv,
+  CookingPot,
+  Plane,
+  Clock,
+  Ban,
+  HelpCircle,
 } from "lucide-react";
 
 import { brand } from "@/config/brand";
@@ -40,10 +44,10 @@ import t3 from "@/assets/t3.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${brand.name} — Luxury Serviced Apartments in ${brand.location}` },
+      { title: `${brand.name} — Luxury Shortlet in ${brand.location}` },
       {
         name: "description",
-        content: `${brand.name} offers hand-finished serviced apartments in ${brand.location} with 24/7 concierge, prime location and seamless self check-in.`,
+        content: `${brand.name} offers a stunning 5-bedroom fully detached luxury shortlet duplex with private pool, rooftop bar, and 24/7 uninterrupted power directly opposite Asaba Airport.`,
       },
       { property: "og:title", content: `${brand.name} — ${brand.location}` },
       { property: "og:description", content: brand.tagline },
@@ -85,9 +89,11 @@ function Landing() {
       <Apartments />
       <Gallery />
       <Amenities />
+      <HouseRules />
       <Reserve />
       <Testimonials />
       <Location />
+      <Faq />
       <CtaBanner />
       <Footer />
       <ThemeToggle floating />
@@ -216,9 +222,9 @@ function Hero() {
       {/* Floating stat cards */}
       <div className="absolute right-6 bottom-28 md:right-12 md:bottom-40 z-10 hidden md:flex flex-col gap-3">
         {[
-          { k: "24/7", v: "Concierge" },
-          { k: "4.97", v: "Guest rating" },
-          { k: "<1h", v: "Reply time" },
+          { k: "33KVA", v: "Dedicated Power Line" },
+          { k: "3", v: "Apartment Options" },
+          { k: "100%", v: "Guest Satisfaction" },
         ].map((s, i) => (
           <div
             key={s.v}
@@ -244,14 +250,14 @@ function Hero() {
 /* ---------- MARQUEE ---------- */
 function Marquee() {
   const words = [
-    "Hand-finished",
-    "24/7 concierge",
-    "Self check-in",
-    "Rooftop pool",
-    "Fibre Wi-Fi",
-    "Chef kitchen",
-    "Estate security",
-    "Private terrace",
+    "24/7 Electricity (33KVA)",
+    "Private Swimming Pool",
+    "Rooftop Bar",
+    "High-Speed Wi-Fi",
+    "Smart TVs & DSTV",
+    "Airport Pickup",
+    "Car Rental Services",
+    "Fully Equipped Kitchen",
   ];
   return (
     <section className="py-8 md:py-10 bg-surface border-y border-border overflow-hidden">
@@ -277,9 +283,9 @@ function Marquee() {
 /* ---------- ABOUT ---------- */
 function About() {
   const stats = [
-    { n: "06", l: "Curated apartments" },
-    { n: "24h", l: "Live concierge" },
-    { n: "100%", l: "Verified guests" },
+    { n: "5", l: "Bedroom Duplex" },
+    { n: "33KVA", l: "Dedicated Power Line" },
+    { n: "100%", l: "Guest Satisfaction" },
   ];
   return (
     <section id="about" className="relative py-28 md:py-44 bg-background overflow-hidden">
@@ -293,25 +299,26 @@ function About() {
           <div className="md:col-span-5 reveal md:sticky md:top-32">
             <span className="eyebrow-line">Chapter 01 · The residence</span>
             <h2 className="mt-6 text-5xl md:text-6xl leading-[1.02] font-light">
-              A different kind of <em className="text-bronze not-italic font-normal">address</em> in
-              {" "}{brand.location}.
+              Experience Premium Luxury in{" "}
+              <em className="text-bronze not-italic font-normal">Asaba</em>.
             </h2>
             <div className="mt-10 flex items-center gap-4">
               <div className="size-14 rounded-full bg-bronze/15 flex items-center justify-center">
                 <Sparkles className="size-5 text-bronze" strokeWidth={1.4} />
               </div>
               <div className="font-display text-sm">
-                Curated, not catalogued.
-                <div className="text-foreground/50 text-xs mt-1">— The Aurelia team</div>
+                Luxury isn't a dream... it's your next stay.
+                <div className="text-foreground/50 text-xs mt-1">— Golden Moon Apartment</div>
               </div>
             </div>
           </div>
           <div className="md:col-span-7 reveal-blur">
             <p className="text-xl md:text-2xl font-light leading-[1.55] text-foreground/85">
-              {brand.name} is a private collection of{" "}
-              <span className="text-bronze">six serviced apartments</span> reimagined for the modern
-              traveller. Every detail — from the linen weight to the espresso blend — has been
-              chosen, not specified. You will not find another address like it in the city.
+              {brand.name} is a{" "}
+              <span className="text-bronze">stunning 5-bedroom fully detached luxury shortlet duplex</span>{" "}
+              directly opposite Asaba Airport, featuring a private pool, rooftop bar, and 24/7 uninterrupted power.
+              Every detail has been designed for your comfort — from the dedicated 33KVA power line to high-speed
+              Wi-Fi, Smart TVs, and premium appliances. You deserve a space that feels like luxury and home at the same time.
             </p>
             <div className="mt-16 grid grid-cols-3 gap-px bg-border">
               {stats.map((s) => (
@@ -339,25 +346,28 @@ function About() {
 function Apartments() {
   const rooms = [
     {
-      img: studio,
-      name: "The Studio",
-      price: "₦95,000",
-      sub: "Quiet retreat",
-      amenities: ["Sleeps 2", "Queen bed", "Kitchenette", "City view"],
+      img: penthouse,
+      name: "The Full Mansion",
+      sub: "5-Bedroom Luxury Duplex",
+      price: "₦425,000",
+      note: "Promo Rate",
+      amenities: ["Sleeps 10+", "Private pool", "Rooftop bar", "33KVA power", "Full kitchen"],
     },
     {
       img: onebed,
-      name: "Executive One-Bedroom",
-      price: "₦165,000",
-      sub: "For the working stay",
-      amenities: ["Sleeps 2", "King bed", "Workspace", "Walk-in closet"],
+      name: "The Executive Suite",
+      sub: "3-Bedroom Apartment",
+      price: "₦298,000",
+      note: "",
+      amenities: ["Sleeps 6", "Private access", "Living area", "Smart TV & DSTV", "Kitchen"],
     },
     {
-      img: penthouse,
-      name: "Skyline Penthouse",
-      price: "₦420,000",
-      sub: "The full floor",
-      amenities: ["Sleeps 4", "2 Bedrooms", "Private terrace", "Plunge pool"],
+      img: studio,
+      name: "The Deluxe Suite",
+      sub: "2-Bedroom Apartment",
+      price: "₦255,000",
+      note: "",
+      amenities: ["Sleeps 4", "Private access", "Living area", "Smart TV & DSTV", "Kitchen"],
     },
   ];
   return (
@@ -365,10 +375,10 @@ function Apartments() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-16 reveal">
           <div className="max-w-2xl">
-            <span className="eyebrow-line">Chapter 02 · The stays</span>
+            <span className="eyebrow-line">Chapter 02 · Rates & stays</span>
             <h2 className="mt-6 text-5xl md:text-6xl leading-[1.02] font-light">
-              Three ways to stay,{" "}
-              <em className="text-bronze not-italic">all of them yours.</em>
+              Choose your perfect stay,{" "}
+              <em className="text-bronze not-italic">all luxury.</em>
             </h2>
           </div>
           <a
@@ -402,6 +412,7 @@ function Apartments() {
                   <div className="font-display text-3xl">{r.name}</div>
                   <div className="text-xs tracking-[0.2em] uppercase text-bone/80 mt-2">
                     from {r.price} <span className="text-bone/50">/ night</span>
+                    {r.note && <span className="text-bronze ml-2">({r.note})</span>}
                   </div>
                 </div>
                 <div className="absolute top-5 right-5 size-12 rounded-full glass flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
@@ -427,12 +438,12 @@ function Apartments() {
 /* ---------- GALLERY — 3D tilt + parallax ---------- */
 function Gallery() {
   const items = [
-    { src: g1, alt: "Marble bathroom", h: 520, w: 4 },
-    { src: g2, alt: "Luxury kitchen", h: 380, w: 5 },
-    { src: g3, alt: "Rooftop pool", h: 480, w: 6 },
-    { src: g4, alt: "Reading nook", h: 360, w: 4 },
-    { src: g5, alt: "Dining area", h: 440, w: 5 },
-    { src: hero, alt: "Living room", h: 400, w: 5 },
+    { src: g1, alt: "Swimming pool", h: 520, w: 4 },
+    { src: g2, alt: "Luxury living room", h: 380, w: 5 },
+    { src: g3, alt: "Rooftop bar", h: 480, w: 6 },
+    { src: g4, alt: "Modern kitchen", h: 360, w: 4 },
+    { src: g5, alt: "Elegant bedroom", h: 440, w: 5 },
+    { src: hero, alt: "Premium interior", h: 400, w: 5 },
   ];
 
   const scrollRow = [g1, g2, g3, g4, g5, hero, studio];
@@ -440,7 +451,7 @@ function Gallery() {
   return (
     <section id="gallery" className="py-28 md:py-40 bg-background relative overflow-hidden noise">
       <div className="absolute -left-10 top-20 font-display text-[20rem] md:text-[32rem] leading-none text-foreground/[0.03] select-none pointer-events-none">
-        03
+        02
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6">
@@ -537,14 +548,15 @@ function TiltCard({ src, alt, index }: { src: string; alt: string; index: number
 /* ---------- AMENITIES — bento ---------- */
 function Amenities() {
   const items = [
-    { icon: Waves, label: "Rooftop Pool", desc: "Infinity edge over the skyline." },
-    { icon: Wifi, label: "Fibre Wi-Fi", desc: "1Gbps, mesh, two backups." },
-    { icon: Dumbbell, label: "Private Gym", desc: "Technogym, residents only." },
-    { icon: Zap, label: "24h Power", desc: "Solar + inverter + diesel." },
-    { icon: Car, label: "Secure Parking", desc: "Valet on request." },
-    { icon: UtensilsCrossed, label: "Chef Kitchen", desc: "Knives that actually cut." },
-    { icon: Snowflake, label: "Climate Control", desc: "Per-room, whisper-quiet." },
-    { icon: ShieldCheck, label: "Estate Security", desc: "Vetted, on-site, 24/7." },
+    { icon: Zap, label: "24/7 Electricity", desc: "Uninterrupted power via a dedicated 33KVA line." },
+    { icon: Waves, label: "Private Swimming Pool", desc: "Exclusive pool for your relaxation and enjoyment." },
+    { icon: Sparkles, label: "Rooftop Bar", desc: "Exclusive rooftop bar with stunning views." },
+    { icon: Wifi, label: "High-Speed Wi-Fi", desc: "Unlimited high-speed internet throughout the property." },
+    { icon: Tv, label: "Smart TVs & DSTV", desc: "Entertainment with Smart TVs and DSTV channels." },
+    { icon: CookingPot, label: "Modern Kitchen", desc: "Fully equipped kitchen with premium appliances." },
+    { icon: Plane, label: "Airport Pickup", desc: "Complimentary airport pickup service available." },
+    { icon: Car, label: "Car Rental", desc: "Available car rental services for your convenience." },
+    { icon: UtensilsCrossed, label: "Indoor Games", desc: "Indoor games and entertainment options." },
   ];
   return (
     <section
@@ -560,13 +572,13 @@ function Amenities() {
           <div className="md:col-span-7 reveal">
             <span className="eyebrow-line !text-bronze-soft">Chapter 04 · Amenities</span>
             <h2 className="mt-6 text-5xl md:text-7xl text-bone leading-[1.02] font-light">
-              Everything in.{" "}
+              Everything included.{" "}
               <span className="text-gradient-bronze italic">Nothing extra to think about.</span>
             </h2>
           </div>
           <p className="md:col-span-5 text-bone/65 font-light leading-relaxed reveal text-lg">
-            Power, security, water, internet — the things that quietly make or break a stay in
-            Lagos. We handle them, so you don't.
+            Power, leisure, connectivity, and service — everything you need for a premium stay
+            in Asaba. We handle them all, so you don't have to.
           </p>
         </div>
 
@@ -577,7 +589,7 @@ function Amenities() {
               key={label}
               className={`relative bg-white/[0.03] border border-white/10 p-6 md:p-7 flex flex-col justify-between group hover:bg-bronze/10 hover:border-bronze/40 transition-all duration-500 overflow-hidden ${
                 i === 0 ? "md:col-span-2 md:row-span-2" : ""
-              } ${i === 5 ? "md:col-span-2" : ""}`}
+              } ${i === 4 ? "md:col-span-2" : ""}`}
             >
               <Icon
                 className={`text-bronze transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 ${
@@ -606,6 +618,48 @@ function Amenities() {
   );
 }
 
+/* ---------- HOUSE RULES ---------- */
+function HouseRules() {
+  const rules = [
+    { icon: Clock, label: "Check-in", value: "From 2:00 PM" },
+    { icon: Clock, label: "Check-out", value: "By 11:00 AM" },
+    { icon: Sparkles, label: "Parties / Events", value: "Prior approval and separate event fees required" },
+    { icon: Ban, label: "Smoking", value: "No smoking inside rooms (permitted at rooftop bar only)" },
+  ];
+  return (
+    <section className="py-28 md:py-40 bg-surface relative">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid md:grid-cols-12 gap-12 items-start mb-16">
+          <div className="md:col-span-5 reveal">
+            <span className="eyebrow-line">Chapter 05 · House rules</span>
+            <h2 className="mt-6 text-5xl md:text-6xl leading-[1.02] font-light">
+              Simple rules for{" "}
+              <em className="text-bronze not-italic">a perfect stay.</em>
+            </h2>
+          </div>
+          <div className="md:col-span-7 reveal-blur">
+            <div className="divide-y divide-border border-t border-border">
+              {rules.map((r) => (
+                <div key={r.label} className="flex items-start gap-5 py-7 group hover:pl-3 transition-all duration-500">
+                  <div className="size-12 rounded-full bg-bronze/10 flex items-center justify-center shrink-0 group-hover:bg-bronze/20 transition-colors">
+                    <r.icon className="size-5 text-bronze" strokeWidth={1.4} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[0.62rem] tracking-[0.22em] uppercase text-foreground/50">
+                      {r.label}
+                    </div>
+                    <div className="font-display text-lg mt-1">{r.value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- RESERVE ---------- */
 function Reserve() {
   return (
@@ -613,21 +667,22 @@ function Reserve() {
       <div className="absolute -right-32 top-1/2 -translate-y-1/2 size-[40rem] rounded-full bg-bronze/5 blur-[100px] pointer-events-none" />
       <div className="relative mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-14 md:gap-20 items-center">
         <div className="reveal">
-          <span className="eyebrow-line">Chapter 05 · Reserve</span>
+          <span className="eyebrow-line">Chapter 06 · Reserve</span>
           <h2 className="mt-6 text-5xl md:text-6xl leading-[1.02] font-light">
             Tell us when you're coming.{" "}
             <em className="text-bronze not-italic">We'll handle the rest.</em>
           </h2>
           <p className="mt-8 text-foreground/70 font-light leading-relaxed text-lg">
             A real human reviews every reservation. You'll hear back from our concierge within an
-            hour — by WhatsApp, email or call, whichever suits you.
+            hour — by WhatsApp, email or call, whichever suits you. 24 Hours Service.
           </p>
           <div className="mt-12 space-y-1">
-            <ContactRow icon={Phone} label="Call" value={brand.phone} href={`tel:${brand.phone}`} />
+            <ContactRow icon={Phone} label="Call" value="+234 816 703 5010" href="tel:+2348167035010" />
+            <ContactRow icon={Phone} label="Call" value="+234 811 884 8205" href="tel:+2348118848205" />
             <ContactRow
               icon={MessageCircle}
               label="WhatsApp"
-              value={brand.phone}
+              value="+234 816 703 5010"
               href={`https://wa.me/${brand.whatsapp}`}
             />
             <ContactRow
@@ -655,13 +710,13 @@ function Reserve() {
             <Input label="Check out" type="date" />
           </div>
           <Input label="Full name" type="text" placeholder="Your name" />
-          <Input label="Phone / WhatsApp" type="tel" placeholder={brand.phone} />
+          <Input label="Phone / WhatsApp" type="tel" placeholder="+234 816 703 5010" />
           <div>
             <Label>Apartment</Label>
             <select className="mt-2 w-full bg-transparent border border-border px-4 py-3 text-sm outline-none focus:border-bronze transition-colors">
-              <option>The Studio</option>
-              <option>Executive One-Bedroom</option>
-              <option>Skyline Penthouse</option>
+              <option>The Full Mansion (5-Bedroom)</option>
+              <option>The Executive Suite (3-Bedroom)</option>
+              <option>The Deluxe Suite (2-Bedroom)</option>
               <option>I'm not sure yet</option>
             </select>
           </div>
@@ -737,7 +792,7 @@ function Testimonials() {
       role: "Stayed 6 nights",
       stars: 5,
       quote:
-        "I've stayed in suites at the Eko and Radisson — this felt more private, more personal, and somehow more luxurious. The concierge anticipated everything.",
+        "I've stayed in suites at top hotels — this felt more private, more personal, and somehow more luxurious. The concierge anticipated everything.",
     },
     {
       img: t2,
@@ -753,14 +808,14 @@ function Testimonials() {
       role: "From London",
       stars: 5,
       quote:
-        "I almost didn't want to go home. The morning light through those windows, the espresso machine, the silence — I'm coming back in October.",
+        "The rooftop bar at sunset is unforgettable. The 33KVA power meant zero interruptions during my entire stay. I'm coming back next month.",
     },
   ];
   return (
     <section className="py-28 md:py-40 bg-surface">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl mb-16 reveal">
-          <span className="eyebrow-line">Chapter 06 · Guests</span>
+          <span className="eyebrow-line">Chapter 07 · Guests</span>
           <h2 className="mt-6 text-5xl md:text-6xl leading-[1.02] font-light">
             A few words from{" "}
             <em className="text-bronze not-italic">people who stayed.</em>
@@ -808,16 +863,16 @@ function Testimonials() {
 function Location() {
   return (
     <section className="py-28 md:py-36 bg-background relative">
-      <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div className="mx-auto max-w-auto max-w-7xl px-6 grid md:grid-cols-2 gap-12 items-center">
         <div className="reveal">
-          <span className="eyebrow-line">Chapter 07 · The neighbourhood</span>
+          <span className="eyebrow-line">Chapter 08 · The location</span>
           <h2 className="mt-6 text-5xl md:text-6xl leading-[1.02] font-light">
-            Quiet street.<br />
-            <em className="text-bronze not-italic">Loud city,</em> at your doorstep.
+            Directly opposite{" "}
+            <em className="text-bronze not-italic">Asaba Airport,</em> Nigeria.
           </h2>
           <p className="mt-8 text-foreground/70 font-light leading-relaxed text-lg">
-            {brand.address}. A few minutes from the things that matter, far enough from the things
-            that don't.
+            {brand.address}. Located in a secure, gated, and highly accessible close — just a 3-minute
+            drive from Asaba International Airport and 5 minutes from Shoprite Asaba Mall.
           </p>
           <ul className="mt-10 divide-y divide-border border-t border-b border-border">
             {brand.nearby.map((n, i) => (
@@ -854,6 +909,50 @@ function Location() {
   );
 }
 
+/* ---------- FAQ ---------- */
+function Faq() {
+  const faqs = [
+    {
+      q: "Is there a security deposit?",
+      a: "Yes, a refundable caution fee is required at check-in.",
+    },
+    {
+      q: "Can I rent just a portion?",
+      a: "Yes, you can book the 2-bedroom or 3-bedroom setup with private access.",
+    },
+    {
+      q: "How do I arrange the airport pickup?",
+      a: "Send your flight itinerary via WhatsApp 24 hours before arrival.",
+    },
+  ];
+  return (
+    <section className="py-28 md:py-40 bg-surface relative">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="max-w-2xl mb-16 reveal">
+          <span className="eyebrow-line">Chapter 09 · FAQs</span>
+          <h2 className="mt-6 text-5xl md:text-6xl leading-[1.02] font-light">
+            Frequently asked{" "}
+            <em className="text-bronze not-italic">questions.</em>
+          </h2>
+        </div>
+        <div className="divide-y divide-border reveal-blur">
+          {faqs.map((faq) => (
+            <details key={faq.q} className="group py-6 cursor-pointer">
+              <summary className="flex items-center justify-between font-display text-xl text-foreground/90 hover:text-bronze transition-colors list-none">
+                {faq.q}
+                <ChevronRight className="size-5 text-bronze transition-transform duration-300 group-open:rotate-90 shrink-0" />
+              </summary>
+              <p className="mt-4 text-foreground/70 font-light leading-relaxed max-w-2xl">
+                {faq.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- CTA BANNER ---------- */
 function CtaBanner() {
   return (
@@ -873,13 +972,13 @@ function CtaBanner() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[40rem] rounded-full bg-bronze/15 blur-[120px]" />
 
       <div className="relative mx-auto max-w-5xl px-6 text-center reveal-blur">
-        <span className="eyebrow-line !text-bronze-soft justify-center">Ready when you are</span>
+        <span className="eyebrow-line !text-bronze-soft justify-center">For Bookings</span>
         <h2 className="mt-6 text-5xl md:text-8xl text-bone leading-[0.98] font-light">
           Ready to experience{" "}
-          <span className="block mt-2 text-gradient-bronze italic">{brand.name}?</span>
+          <span className="block mt-2 text-gradient-bronze italic">{brand.shortName}?</span>
         </h2>
         <p className="mt-8 text-bone/65 max-w-xl mx-auto font-light text-lg">
-          Reach out directly. We respond within the hour, every hour.
+          Whether it's a weekend escape or a longer stay, you deserve a space that feels like luxury and home at the same time.
         </p>
         <div className="mt-12 flex flex-wrap gap-4 justify-center">
           <a
@@ -888,7 +987,7 @@ function CtaBanner() {
             rel="noreferrer"
             className="btn-luxe"
           >
-            <MessageCircle className="size-4" /> WhatsApp us
+            <MessageCircle className="size-4" /> Chat with Golden Moon Management
           </a>
           <a
             href={`tel:${brand.phone}`}
@@ -916,6 +1015,9 @@ function Footer() {
             <p className="mt-5 text-foreground/65 max-w-sm leading-relaxed">
               {brand.name} — {brand.tagline}
             </p>
+            <p className="mt-3 text-sm text-foreground/60">
+              @GoldenMoonAsaba
+            </p>
             <div className="mt-8 flex gap-3">
               {[
                 { icon: Instagram, href: brand.socials.instagram, label: "Instagram" },
@@ -941,13 +1043,13 @@ function Footer() {
             <div className="eyebrow mb-5">Reach</div>
             <ul className="text-sm space-y-3 text-foreground/75">
               <li>
-                <a href={`tel:${brand.phone}`} className="hover:text-bronze transition-colors">
-                  {brand.phone}
+                <a href="tel:+2348167035010" className="hover:text-bronze transition-colors">
+                  +234 816 703 5010
                 </a>
               </li>
               <li>
-                <a href={`mailto:${brand.email}`} className="hover:text-bronze transition-colors">
-                  {brand.email}
+                <a href="tel:+2348118848205" className="hover:text-bronze transition-colors">
+                  +234 811 884 8205
                 </a>
               </li>
               <li>
@@ -955,7 +1057,7 @@ function Footer() {
                   href={`https://wa.me/${brand.whatsapp}`}
                   className="hover:text-bronze transition-colors flex items-center gap-2"
                 >
-                  <MessageCircle className="size-3.5" /> WhatsApp concierge
+                  <MessageCircle className="size-3.5" /> Chat with Golden Moon Management
                 </a>
               </li>
             </ul>

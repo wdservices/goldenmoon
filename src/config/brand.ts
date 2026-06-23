@@ -1,28 +1,26 @@
 // Swap these per prospect. Single source of truth for the entire landing page.
 export const brand = {
-  name: "Aurelia Residences",
-  shortName: "Aurelia",
-  location: "Lekki, Lagos",
-  tagline: "Quiet luxury, served daily.",
-  heroHeadline: "Live softly in the heart of Lagos.",
+  name: "Golden Moon Apartment",
+  shortName: "Golden Moon",
+  location: "Asaba, Delta State, Nigeria",
+  tagline: "Premium Luxury Directly Opposite Asaba Airport",
+  heroHeadline: "Experience Premium Luxury Directly Opposite Asaba Airport",
   heroSub:
-    "A collection of serviced apartments designed for the kind of stay you'd rather not end. Hand-finished interiors, 24-hour concierge, and a private rooftop above the city.",
-  phone: "+234 800 000 0000",
-  whatsapp: "+2348000000000", // digits only for wa.me
-  email: "stay@aureliaresidences.ng",
-  address: "12 Admiralty Way, Lekki Phase 1, Lagos",
-  mapsQuery: "Lekki Phase 1, Lagos, Nigeria",
+    "A stunning 5-bedroom fully detached luxury shortlet duplex featuring a private pool, rooftop bar, and 24/7 uninterrupted power.",
+  phone: "+234 816 703 5010",
+  whatsapp: "+2348167035010", // digits only for wa.me
+  email: "bookings@goldenmoonapartment.com",
+  address: "No. 4 Chukwuani Samuel Okechukwu Close, Asaba, Delta State",
+  mapsQuery: "No. 4 Chukwuani Samuel Okechukwu Close, Asaba, Delta State",
   socials: {
-    instagram: "https://instagram.com/",
+    instagram: "https://instagram.com/goldenmoonapartment",
     twitter: "https://twitter.com/",
     facebook: "https://facebook.com/",
   },
   nearby: [
-    { name: "Murtala Muhammed Int'l Airport", distance: "32 min" },
-    { name: "Lekki Conservation Centre", distance: "8 min" },
-    { name: "The Palms Shopping Mall", distance: "12 min" },
-    { name: "Victoria Island business district", distance: "18 min" },
-    { name: "Tarkwa Bay Beach", distance: "25 min" },
+    { name: "Asaba International Airport", distance: "3 min drive / directly opposite" },
+    { name: "Shoprite Asaba Mall", distance: "5 min drive" },
+    { name: "Secure Gated Close", distance: "On-site" },
   ],
 };
 
