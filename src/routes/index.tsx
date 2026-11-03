@@ -28,18 +28,19 @@ import {
 
 import { brand } from "@/config/brand";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import hero from "@/assets/hero.jpg";
-import studio from "@/assets/studio.jpg";
-import onebed from "@/assets/onebed.jpg";
-import penthouse from "@/assets/penthouse.jpg";
-import g1 from "@/assets/g1.jpg";
-import g2 from "@/assets/g2.jpg";
-import g3 from "@/assets/g3.jpg";
-import g4 from "@/assets/g4.jpg";
-import g5 from "@/assets/g5.jpg";
-import t1 from "@/assets/t1.jpg";
-import t2 from "@/assets/t2.jpg";
-import t3 from "@/assets/t3.jpg";
+
+const hero = "/snapgram.io_3y743537wqc9.jpg";
+const penthouse = "/snapgram.io_hqcskeq44c21.jpg";
+const onebed = "/snapgram.io_hghr9n5ygxho.jpg";
+const studio = "/snapgram.io_8aa1an82nejv.jpg";
+const g1 = "/snapgram.io_4thoqtpbxjrt.jpg";
+const g2 = "/snapgram.io_46jakl8a2jcu.jpg";
+const g3 = "/snapgram.io_9oyh63ak44q4.jpg";
+const g4 = "/snapgram.io_vfeq5yv5gdyt.jpg";
+const g5 = "/snapgram.io_vfeq5yv5gdyt.jpg";
+const t1 = "/snapgram.io_3y743537wqc9.jpg";
+const t2 = "/snapgram.io_hqcskeq44c21.jpg";
+const t3 = "/snapgram.io_hghr9n5ygxho.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
